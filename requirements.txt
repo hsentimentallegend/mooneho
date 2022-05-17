@@ -1,0 +1,7 @@
+streamlit==1.9.0
+streamlit_webrtc
+asyncio
+logging
+pathlib
+typing
+av
