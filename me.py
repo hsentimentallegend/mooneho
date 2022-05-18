@@ -23,7 +23,7 @@ RTC_CONFIGURATION = RTCConfiguration(
 
 
 
-DEFAULT_DELAY = 0.08
+DEFAULT_DELAY = 0.04
 
 class VideoProcessor(VideoProcessorBase):
     delay = DEFAULT_DELAY
@@ -39,7 +39,7 @@ class AudioProcessor(AudioProcessorBase):
         await asyncio.sleep(self.delay)
         return frames
 st.write('''[How to Use]''')
-st.write('''Attach the headphones to your smartphone and press the play button below to stream video and audio.
+st.write('''Attach the headphones to your smartphone and press the START button below to stream video and audio.
 You will hear a delay in the audio, so try talking to someone near you in that state.
 If you are alone, read aloud from a book set up at the venue.
 Listen carefully to how the tone of your voice sounds.
@@ -54,7 +54,7 @@ webrtc_ctx = webrtc_streamer(
         async_processing=True,
     )
 if webrtc_ctx.video_processor and webrtc_ctx.audio_processor:
-     delay = st.slider("Delay", 0.0, 2.0, DEFAULT_DELAY, 0.01)
+     delay = st.slider("Delay time", 0.0, 2.0, DEFAULT_DELAY, 0.01)
      webrtc_ctx.video_processor.delay = delay
      webrtc_ctx.audio_processor.delay = delay
 
