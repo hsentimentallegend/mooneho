@@ -31,6 +31,11 @@ class VideoProcessor(VideoProcessorBase):
         logger.debug("Delay:", self.delay)
         await asyncio.sleep(self.delay)
         return av.VideoFrame.from_ndarray(frames, format="bgr24")
+        try:
+        self._transport.sendto(packet, socket_address)
+        self.bytes_up += len(packet)
+        except (TypeError, ValueError) as exc:
+        self._logger.warning("Dropping packet due to message formatting error: %s", exc)
 
 class AudioProcessor(AudioProcessorBase):
     delay = DEFAULT_DELAY
