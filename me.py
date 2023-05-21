@@ -21,9 +21,6 @@ RTC_CONFIGURATION = RTCConfiguration(
     {"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]}
 )
 
-asyncio.run(your_async_function())
-
-
 DEFAULT_DELAY = 0.04
 
 class VideoProcessor(VideoProcessorBase):
